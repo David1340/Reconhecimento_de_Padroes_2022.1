@@ -70,4 +70,22 @@ figure()
 scatter3D(x1[:,1],x1[:,3],x1[:,4],color = "yellow");
 scatter3D(x2[:,1],x2[:,3],x2[:,4],color = "red");
 scatter3D(x3[:,1],x3[:,3],x3[:,4],color = "blue");
-erro = sum((y_new - y_real).^2)/size(y_real,2)*100
+
+
+i = 0
+cont = 0
+while(i < size(y_real,2))
+    global i,cont,y_new,y_real
+    i = i +1
+    if(y_new[i] == y_real[i])
+        global cont
+        cont = cont +1
+    end
+end
+e = yc - y;
+println("taxa de acerto:",  round(cont/size(y_real,2) * 100, digits = 4))
+println("EQM: ",round(sum(e.^2)/size(y,2),digits = 4))
+
+
+#taxa de acerto:84.6667
+#EQM: 0.2709
