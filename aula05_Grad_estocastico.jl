@@ -30,9 +30,9 @@ yd = [y1 y2 y3];
 
 #Inicialização do método
 w = randn(3,5)
-alpha = 10^-4
+alpha = 10^-3
 k = 1
-kmax = 10000
+kmax = 1000000
 
 y = w*x;
 e = yd - y;
@@ -46,7 +46,10 @@ aux = true
 while(k < kmax +1)
     global k,w,y,x,e,aux,eqm,J
     k = k +1
-    w = w + alpha*e*x'
+    idc = rand(1:size(y,2))
+    local e2 = e[:,idc]
+    local x2 = x[:,idc]
+    w = w + alpha*e2*x2'
     y = w*x;
     e = yd - y;
     eqm[k-1] = sum(e.^2)/size(y,2)
