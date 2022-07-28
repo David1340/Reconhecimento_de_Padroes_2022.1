@@ -45,4 +45,4 @@ scatter3D(y3[:,1],y3[:,2],y3[:,3],color = "blue")
 #Leitura de uma imagem e seu plot
 figure()
 x3 = imread("Imagens sinteticas/para_raios0.png");
-imshow(x3)
+imshow(x3,cmap = "gray")
